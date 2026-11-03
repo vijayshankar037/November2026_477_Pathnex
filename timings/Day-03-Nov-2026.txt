@@ -1,0 +1,10 @@
+# What I did today (03-Nov-2026)
+# Today I have spend 2Hr to understand and explore the Process management,  System commands, User group and permessions commands()
+# top, ps, kill, grep, chown, pkil, pgrep
+# Spend 2hours on Bash script
+# created a bash file with linux command and saving the output to the file and used the grep command to fetch the content from file.
+# 
+
+
+# What I'll do tomorrow (03-Nov-2026)
+# Learn more about shell scripting, zombie processes, and orphan processes in Linux and learn the interview question of Linux
