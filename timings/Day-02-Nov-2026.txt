@@ -1,4 +1,4 @@
-# What I did today (01-Nov-2026)
+# What I did today (02-Nov-2026)
 # Today I have spend 1Hr to learned the Linux commands and did practice of those commands( listed below)
 # ls, cd, pwd, whoami, top, mv, cp, ping, 
 # 30 min Learning about the os and process
