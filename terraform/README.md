@@ -3,7 +3,7 @@
 
 ## 1. Project Overview
 
-This project uses Terraform (Infrastructure as Code) to provision an AWS EC2 instance of type `t3.micro` running Amazon Linux 2023.
+This project uses Terraform (Infrastructure as Code) to provision an AWS EC2 instance of type `t3.micro` running Amazon Linux 2023 with Nginx. HTTP (port 80) and SSH (port 22) are restricted to the configured public IPv4 address.
 
 ### Project Details
 
@@ -14,6 +14,8 @@ This project uses Terraform (Infrastructure as Code) to provision an AWS EC2 ins
 | Resource | EC2 Instance |
 | Instance Type | t3.micro |
 | Operating System | Amazon Linux 2023 |
+| Web server | Nginx |
+| Inbound access | HTTP and SSH from `allowed_cidr` only |
 | AWS Region | ap-south-1 (Mumbai) |
 | Environment | Development |
 | Instance Management | Terraform |
@@ -32,7 +34,7 @@ terraform-ec2-t3-micro/
 ├── versions.tf                  # Terraform and provider versions
 ├── provider.tf                  # AWS provider configuration
 ├── variables.tf                 # Input variable declarations
-├── terraform.tfvars             # Environment-specific values
+├── terraform.tfvars            # Environment-specific values (includes allowed_cidr)
 ├── data.tf                      # AWS data sources (AMI lookup)
 ├── main.tf                      # EC2 infrastructure definition
 ├── outputs.tf                   # Infrastructure output values
@@ -87,6 +89,18 @@ Provide the following details:
 
 Use an appropriately privileged IAM identity and avoid hardcoding credentials in Terraform files.
 
+### Configure Your Allowed IP and SSH Key Pair
+
+Set `allowed_cidr` in `terraform.tfvars` to your public IPv4 address followed by `/32` (for example, `203.0.113.10/32`). The current value is `49.43.106.161/32`; update it if your public IP changes. Both HTTP and SSH inbound access use this CIDR.
+
+SSH additionally requires an existing EC2 key pair in the configured AWS region. Pass its name when applying:
+
+```bash
+terraform apply -var="key_name=your-ec2-key-pair"
+```
+
+If you only need to view Nginx over HTTP, no key pair is needed. The instance can be reached at the `nginx_url` output, and only from the configured IP.
+
 ---
 
 ## 5. Terraform Deployment Commands
@@ -136,6 +150,8 @@ Creates the EC2 instance in AWS.
 ```bash
 terraform apply
 ```
+
+To enable SSH, use the `-var="key_name=your-ec2-key-pair"` option shown above.
 
 Review the execution plan and enter `yes` when prompted.
 

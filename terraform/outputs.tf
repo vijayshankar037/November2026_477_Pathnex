@@ -14,6 +14,11 @@ output "public_ip" {
   value       = aws_instance.this.public_ip
 }
 
+output "nginx_url" {
+  description = "Nginx URL (reachable only from the configured allowed_cidr)"
+  value       = "http://${aws_instance.this.public_ip}"
+}
+
 output "private_ip" {
   description = "EC2 private IP address"
   value       = aws_instance.this.private_ip
