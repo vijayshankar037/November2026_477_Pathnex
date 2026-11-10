@@ -1,0 +1,10 @@
+# What I did today (05-Nov-2026)
+# 3Hours for git learning and its comman commands
+# tested the rebase and merge of the feature branch 
+# created the branch and PR
+# deleted the branch with git branch -D 
+# 2hours Practice on the tf create the EC2 instance and did practicle of terraform
+
+
+# What I'll do tomorrow (05-Nov-2026)
+# I'll prepare the Git interview question in details
