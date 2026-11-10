@@ -1,0 +1,8 @@
+# What I did today (06-Nov-2026)
+# 2 hours on the AWS service EC2, S3, RDS, S3, VPC, Lambada
+# Login into the aws console and navigated through the UI and options aviable around the page
+# 1Hr spent on Created and execute the terraform script to create the ec2 instance
+# 30 min on linux bash script 
+
+# What I'll do tomorrow (06-Nov-2026)
+# Will contintue the next service in the AWS according to the plan
