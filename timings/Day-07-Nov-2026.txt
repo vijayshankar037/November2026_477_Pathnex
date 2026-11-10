@@ -1,0 +1,7 @@
+# What I did today (07-Nov-2026)
+# 1Hr on the coding practice
+# 1Hr for the next services of AWS like(EKS, Auto Scaling, Lambada, Aws Shield, AWS WAF, GuardDuty, Amazon Inspector)
+# 2 hours on the interview question of Linux and AWS 
+
+# What I'll do tomorrow (07-Nov-2026)
+will continue on the next servers to be covered under aws
