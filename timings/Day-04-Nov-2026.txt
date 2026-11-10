@@ -1,0 +1,9 @@
+# What I did today (04-Nov-2026)
+# Today I spent 3Hours on the inteview question on the linux along with it did practice on the corntab and user password commands 
+# Spend 30min on the VI terminal more practice and typing on the terminal
+# - Searching the text 
+# - delete the text/replace the text
+#spend 30min to learn the shortcuts of terminal ( Char/Cursour movement)
+
+# What I'll do tomorrow (04-Nov-2026)
+# According the plan I'll learn the GITHUB
