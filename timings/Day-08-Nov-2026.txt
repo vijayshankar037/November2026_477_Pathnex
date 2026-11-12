@@ -1,0 +1,7 @@
+# What I did today (08-Nov-2026)
+# 2 hour on the Kubernetes theory and architecture get the understanding of Cluster, Controle plane, Worker Node,
+# Revised the AWS services and Interview questions
+# Revised the Linux and Git Interview Questions
+
+# What I'll do tomorrow (08-Nov-2026)
+# Will continue on the Kubernetes next topics 
