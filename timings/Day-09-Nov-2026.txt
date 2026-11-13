@@ -1,0 +1,9 @@
+# What I did today (09-Nov-2026)
+#Spent 2 hours learning Kubernetes concepts and components.
+#Practiced Kubernetes commands to list and explore Namespaces, Deployments, Pods, and Worker Nodes.
+#Reviewed and revised various AWS services and their functionalities.
+#Spent 2 hours watching the English movie Lee Cronin's The Mummy to improve my English listening skills.
+
+# What I'll do tomorrow (09-Nov-2026)
+# Continue learning the next concepts and components of Kubernetes.
+# Practice more Kubernetes commands to strengthen my understanding.
