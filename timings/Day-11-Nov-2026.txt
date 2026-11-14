@@ -1,0 +1,8 @@
+# What I did today (11-Nov-2026)
+# 30 minutes: Practiced coding.
+# 3 hours: Watched YouTube videos on Kubernetes updates.
+# 2 hours: Performed hands-on practical exercises on an EKS cluster.
+
+
+# What I'll do tomorrow (11-Nov-2026)
+#Will continue working on the Kubernetes notes and hands-on practical exercises as planned.
