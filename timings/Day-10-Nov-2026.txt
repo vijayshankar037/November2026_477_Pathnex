@@ -1,0 +1,8 @@
+# What I did today (10-Nov-2026)
+# Spent 2 hours learning Kubernetes concepts and components.
+# Practiced Kubernetes commands to list and explore Namespaces, Deployments, Pods, and Worker Nodes.
+# Reviewed and revised various AWS services and their functionalities.
+
+# What I'll do tomorrow (10-Nov-2026)
+# Continue learning the next concepts and components of Kubernetes.
+# Practice more Kubernetes commands to strengthen my understanding.
