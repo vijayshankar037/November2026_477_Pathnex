@@ -1,4 +1,7 @@
 # What I did today (13-Nov-2026)
-
+# 2 hours on the kubernates practical for Liveness, Readiness and Startup and Probes
+# 2 hours Practical of kubectl commands( to list Namespace, pos, describe pod, networks)
+# 1 Hour for Interview question of K8
 
 # What I'll do tomorrow (13-Nov-2026)
+# continue the Helm learning with practical
