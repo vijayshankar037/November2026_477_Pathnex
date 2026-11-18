@@ -1,0 +1,8 @@
+## What I Did Today (15-Nov-2026)
+# Spent 1 hour on coding practice.
+# Spent 3 hours on hands-on practice, creating a Dockerfile and Docker Compose configuration for a Ruby on Rails application, and setting up Kubernetes (K8s) to deploy and run the application.
+# 1Hour Revised essential Linux commands and Vi/Vim shortcuts.
+
+## What I'll Do Tomorrow (16-Nov-2026)
+# Learn the fundamentals of Terraform.
+# Explore Argo CD and understand its role in GitOps and Kubernetes deployments.
