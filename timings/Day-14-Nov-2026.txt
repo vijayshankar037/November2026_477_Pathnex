@@ -1,0 +1,6 @@
+# What I did today (14-Nov-2026)
+# 3 Understand the ArgoCd and rewatched the youtube video
+# 1 practice on the kubernates commands of networking 
+
+# What I'll do tomorrow (14-Nov-2026)
+# continue the ArgoCd learning with practical
