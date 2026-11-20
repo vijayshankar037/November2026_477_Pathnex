@@ -1,0 +1,7 @@
+## What I Did Today (15-Nov-2026)
+# 3hours on Argo CD & GitOps following topics
+# Learn and implement Argo CD with Kubernetes using Helm. Configure Argo CD, access its UI and CLI, integrate GitHub repositories, and deploy applications using GitOps. Practice manual and automatic synchronization, monitor application health, understand drift detection and self-healing, and troubleshoot authentication, networking, and Kubernetes deployment issues through hands-on exercises.
+# 30min in coding 
+
+## What I'll Do Tomorrow (16-Nov-2026)
+# Learn the Next task from ArgoCd

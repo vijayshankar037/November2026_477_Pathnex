@@ -1,0 +1,245 @@
+# Day 17 - Multi-Cloud Deployment, Auto-healing, and  Advance CI/CD
+
+## Ansible - Auto-healing Web Server with Systemd
+---
+- name: Configure Auto-Healing for Web Server
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Ensure Nginx server is running
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Create systemd override directory
+      ansible.builtin.file:
+        path: /etc/systemd/system/nginx.service.d
+        state: directory
+        mode: '0755'
+
+    - name: Setup auto-restart for Nginx service
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/nginx.service.d/override.conf
+        content: |
+          [Service]
+          Restart=always
+          RestartSec=5
+        mode: '0644'
+      notify: Reload systemd
+
+  handlers:
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: yes
+        name: nginx
+        state: restarted
+
+## Terraform - Multi-cloud Infrastructure with AWS and Azure
+# AWS VPC
+# AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Azure Provider
+provider "azurerm" {
+  features {}
+}
+
+# AWS VPC
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+
+  tags = {
+    Name = "pathnex-vpc"
+  }
+}
+
+# Azure Resource Group
+resource "azurerm_resource_group" "main" {
+  name     = "pathnex-resource-group"
+  location = "East US"
+}
+
+# Azure Virtual Network
+resource "azurerm_virtual_network" "main" {
+  name                = "pathnex-vnet"
+  location            = azurerm_resource_group.main.location
+  address_space       = ["10.1.0.0/16"]
+  resource_group_name = azurerm_resource_group.main.name
+}
+
+# EC2 Instance in AWS
+resource "aws_instance" "pathnex_ec2" {
+  ami           = "ami-0abcd1234abcd1234"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "pathnex-ec2"
+  }
+}
+
+# Azure Linux Virtual Machine
+resource "azurerm_linux_virtual_machine" "pathnex_vm" {
+  name                = "pathnex-azure-vm"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = azurerm_resource_group.main.location
+  size                = "Standard_B1s"
+
+  admin_username = "azureuser"
+
+  disable_password_authentication = true
+
+#Important: The Azure VM resource needs a valid network interface, subnet, and public IP configuration before deployment. The network_interface_ids = [] above is a placeholder and must be replaced with an actual network interface ID. Also, replace the example AWS AMI with a valid AMI for your selected region.
+  network_interface_ids = []
+
+  admin_ssh_key {
+    username   = "azureuser"
+    public_key = file("~/.ssh/id_rsa.pub")
+  }
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
+    version   = "latest"
+  }
+}
+
+# Kubernate - Self-Healing with Livenes and Readiness Probes
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: pathnex-web-app
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: pathnex-web-app
+
+  template:
+    metadata:
+      labels:
+        app: pathnex-web-app
+
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+
+          ports:
+            - containerPort: 80
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+## Jenkinsfile - Rolling Deployment with Kubernates
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = 'pathnex-web-app'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building Docker image...'
+
+                script {
+                    docker.build("${env.IMAGE_NAME}")
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    sh 'kubectl apply -f kubernetes/deployment.yaml'
+
+                    sh 'kubectl rollout status deployment/pathnex-web-app'
+                }
+            }
+        }
+    }
+}
+
+## GitLab CI/CD - Multi-Cloud Deployment
+stages:
+  - build
+  - push
+  - deploy
+
+variables:
+  IMAGE_NAME: "pathnex-web-app"
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_NAME .
+
+push:
+  stage: push
+  script:
+    - docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY" <<< "$CI_REGISTRY_PASSWORD"
+    - docker tag $IMAGE_NAME "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+
+deploy_aws:
+  stage: deploy
+  script:
+    - kubectl --context=aws-cluster apply -f kubernetes/deployment.yaml
+
+deploy_azure:
+  stage: deploy
+  script:
+    - kubectl --context=azure-cluster apply -f kubernetes/deployment.yaml
+
+## Docker
+# -d: Runs the container in detached mode.
+# --name: Assigns a name to the container.
+# -e: Sets the MySQL root password.
+# -v: Creates persistent storage for MySQL data.
+
+mysql:8: Uses MySQL version 8.
+docker run -d \
+  --name pathnex-mysql \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -v mysql_data:/var/lib/mysql \
+  mysql:8
+
+#Check running containers:
+    docker ps
+# Check MySQL logs:
+    docker logs pathnex-mysql
+# Connect to MySQL:
+    docker exec -it pathnex-mysql mysql -uroot -p
+
+#Real path/var/lib/mysql
