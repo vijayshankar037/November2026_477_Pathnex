@@ -1,0 +1,7 @@
+## What I Did Today (21-Nov-2026)
+# 2 Hours on New Relic integration with EKS, understanding infrastructure observability, configuring Argo CD self-healing, and troubleshooting live issues gave me valuable practical insights. Seeing real-time CPU and memory metrics and setting up alerts made the entire monitoring process much easier to understand
+# 1 Hour on the Kubernates configuration for creating the application of Ruby On rails + Postgress example + github
+# 30Min on the coding practice
+
+## What I'll Do Tomorrow (22-Nov-2026)
+#Will follow the next learning step and complete my example of EKS
