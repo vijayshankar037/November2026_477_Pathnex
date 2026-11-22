@@ -1,0 +1,6 @@
+## What I Did Today (22-Nov-2026)
+#1 hour: Practiced Linux commands related to user creation, assigning roles and groups, and understanding the systemd process.
+#1 hour: Practiced Linux commands such as find, top, htop, and wget.
+#2 hours: Worked on New Relic EKS cluster creation and configuration by rewatching the YouTube tutorial.
+## What I'll Do Tomorrow (23-Nov-2026)
+# Continue learning and practicing monitoring concepts according to the planned schedule.
