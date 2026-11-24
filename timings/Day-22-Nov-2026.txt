@@ -1,0 +1,8 @@
+#What I Did Today (22-Nov-2026)
+#2 Hours: Focused on learning CI/CD by watching YouTube tutorials.
+#Gained an understanding of the Jenkins and GitLab CI/CD workflows, including build and deployment processes and different branching strategies.
+#1 Hour: Practiced coding to improve problem-solving skills.
+#2 Hours: Prepared for interview questions covering Jenkins, Kubernetes (K8s), Git, and Linux.
+
+#What I'll Do Tomorrow (23-Nov-2026)
+#Start learning and exploring Datadog, focusing on its core concepts, features, and monitoring capabilities.
