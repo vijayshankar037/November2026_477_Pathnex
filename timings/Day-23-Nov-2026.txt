@@ -1,0 +1,7 @@
+#What I Did Today (22-Nov-2026)
+#Spent 3 hours practicing the ELK Stack and revisiting the recorded video to strengthen my understanding.
+#Spent 1 hour coding and understanding the concept of Serverless API Gateway with Lambda Integration.
+
+#What I'll Do Tomorrow (23-Nov-2026)
+#Continue following the learning schedule and move on to the next topic.
+#Work on implementing the ELK Stack with a Kubernetes cluster to gain practical, hands-on experience.
