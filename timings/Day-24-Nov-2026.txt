@@ -1,0 +1,8 @@
+#What I Did Today (27-Nov-2026)
+#pent 3 hours working on Advanced Terraform Modules and understanding multi-module infrastructure configuration with outputs.
+#Spent 1 hour practicing Ansible automation, Kubernetes deployments using Helm, Horizontal Pod Autoscaling (HPA), and Jenkins CI/CD pipeline scaling.
+
+#What I'll Do Tomorrow (28-Nov-2026)
+#Continue following the learning schedule and move on to the next topic(SRE).
+#Practice deploying and managing applications using Terraform, Ansible, Kubernetes, and Helm.
+#Work on improving CI/CD pipeline automation and understanding infrastructure scaling through hands-on implementation.
